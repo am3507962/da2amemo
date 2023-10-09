@@ -1,246 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Your KS4 Study Guide</title>
     <style>
-        /* Your CSS styles here */
-        /* Styling for header, nav, and content */
-       body {
+        /* Add your CSS styles here */
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-
-        nav {
-            background-color: #444;
-            color: #fff;
-            width: 150px;
-            position: fixed;
-            height: 100%;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-
-        nav ul li {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            display: block;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
+            background-color: #f7f7f7;
         }
 
         .container {
-            margin-left: 160px; /* Adjust for the width of the sidebar */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 0 auto;
+            max-width: 800px;
             padding: 20px;
         }
 
-        .content {
-            background-color: #fff;
+        header {
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        section {
+            text-align: right;
             padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            border-radius: 5px;
         }
 
-        /* Styling for subject-specific content */
-        /* Customize the styles as needed for each subject */
-        .subject-title {
+        section h2 {
             font-size: 24px;
-            margin-bottom: 10px;
         }
 
-        .topic {
-            margin-bottom: 20px;
+        ul {
+            list-style-type: circle;
+            padding-left: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script>
+        // Add your JavaScript code here
+
+        // Set the event date (October 28, 2023) and registration deadline (October 26, 2023)
+        const eventDate = new Date("2023-10-28").getTime();
+        const registrationDeadline = new Date("2023-10-26").getTime();
+
+        // Function to update the countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeUntilEvent = eventDate - now;
+            const timeUntilDeadline = registrationDeadline - now;
+
+            if (timeUntilEvent > 0) {
+                const days = Math.floor(timeUntilDeadline / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeUntilDeadline % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeUntilDeadline % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeUntilDeadline % (1000 * 60)) / 1000);
+
+                const countdownText = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+
+                document.getElementById("countdown-timer").innerText = `التسجيل يغلق في: ${countdownText}`;
+            } else {
+                document.getElementById("countdown-timer").innerText = "تم إغلاق التسجيل.";
+            }
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Initial countdown update
+        updateCountdown();
+    </script>
 </head>
 <body>
     <header>
-        <h1>Your KS4 Study Guide</h1>
+        <h1>مرحبًا بكم في ورشة العمل</h1>
+        <p>حدث ليوم واحد لاحتراف أجهزتك الرقمية</p>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#" onclick="showHome()">Home</a></li>
-            <li><a href="#" onclick="showSubject('english')">English</a></li>
-            <li><a href="#" onclick="showSubject('math')">Math</a></li>
-            <li><a href="#" onclick="showSubject('science')">Science</a></li>
-            <li><a href="#" onclick="showSubject('history')">History</a></li>
-            <!-- Add more subject links as needed -->
-        </ul>
-    </nav>
+
     <div class="container">
-        <div class="content" id="home">
-            <h2>Welcome to Your KS4 Study Guide</h2>
-            <p>Choose a subject to explore.</p>
-        </div>
-        <div class="content" id="english" style="display:none;">
-            <h2>English</h2>
-            <h3 class="subject-title">Literature</h3>
-            <div class="topic">
-                <h4>Topic 1: Shakespearean Sonnets</h4>
-                <p>Content and details about Shakespearean Sonnets in Year 10...</p>
-            </div>
-            <div class="topic">
-                <h4>Topic 2: Modern Poetry</h4>
-                      <p><a href="https://www.poetryfoundation.org/poems/46473/if---" target="_blank">Read the Poem - If – Rudyard Kipling.</a></p>
+        <section>
+            <h2>عن الحدث</h2>
+            <p>انضم إلينا في ورشة العمل المثيرة حيث ستتعلم كيفية استخدام الكمبيوتر المحمول والهواتف الذكية بفعالية. سواء كنت مبتدئًا أو ترغب في تحسين مهاراتك، فإن هذه الورشة مناسبة لك!</p>
+        </section>
 
-                <button class="collapsible" onclick="togglePoem()">Toggle Poem - If – Rudyard Kipling</button>
-                <div class="poem" id="poem" style="display:none;">
-                    <!-- Poem content here -->
-                    <p>
-            <b>What is the poem about?</b><br>
-            The poem "If—" by Rudyard Kipling is about imparting advice and guidance on how to lead a virtuous and successful life. The speaker addresses his son, offering a series of conditions or qualities that, when achieved, will make the son a mature and admirable individual. The poem emphasizes traits such as composure, resilience, self-confidence, patience, and integrity. It encourages the reader to maintain their inner strength and dignity in the face of adversity and success alike.
-        </p>
-
-        <p>
-            <b>Find any key piece of advice and note down how the use of iambic pentameter makes the advice more effective.</b><br>
-            One key piece of advice in the poem is:
-            "If you can dream—and not make dreams your master;"
-            The use of iambic pentameter in this line adds a rhythmic and measured quality to the advice. It creates a sense of balance and stability in the advice, emphasizing the importance of having dreams but not allowing them to control one's life. The regularity of the meter reinforces the idea of maintaining self-control and not being overwhelmed by one's ambitions.
-        </p>
-
-        <p>
-            <b>The poem has an ABAB rhyme scheme. What effect does this have on the reader?</b><br>
-            The ABAB rhyme scheme gives the poem a structured and organized feel. It creates a sense of predictability and rhythm, making the poem easier to remember and recite. This rhyme scheme also contributes to the poem's advice-giving nature, as it reinforces each condition or piece of advice with a corresponding rhyme, making each stanza a concise unit of wisdom.
-        </p>
-
-        <p>
-            <b>Find an example of enjambment used in the poem. What effect does this have on the reader?</b><br>
-            Enjambment occurs in the poem when a line does not end with punctuation, and the sentence continues into the next line. For example:
-            "If you can force your heart and nerve and sinew
-            To serve your turn long after they are gone;"
-            This enjambment creates a sense of flow and continuity, encouraging the reader to keep reading without pause. It connects the idea of perseverance and resilience directly to the idea of physical and emotional endurance. The effect is that it reinforces the message of endurance and the ability to "hold on" even when one's resources are depleted.
-        </p>
-
-        <p>
-            <b>Find any linguistic or structural devices used in the poem.</b><br>
-            The poem employs several linguistic and structural devices, including:
+        <section>
+            <h2>الأجندة</h2>
             <ul>
-                <li>Anaphora: The repetition of "If" at the beginning of each stanza emphasizes the conditional nature of the advice, creating a pattern that guides the reader through each condition.</li>
-                <li>Metaphor: The poem uses metaphors such as "Triumph and Disaster" personified as "impostors" to convey the idea that both success and failure should be treated with equanimity.</li>
-                <li>Imperatives: The poem includes imperative verbs like "wait," "dream," "bear," and "fill," which give the poem a directive tone, as if the speaker is giving direct commands to the reader.</li>
-                <li>Parallelism: The poem uses parallel sentence structures, making it easier for the reader to follow and understand the advice being presented.</li>
+                <li>مقدمة حول الكمبيوتر المحمول والهواتف الذكية</li>
+                <li>استخدام الأساسيات والميزات</li>
+                <li>حل المشكلات الشائعة</li>
+                <li>جلسة عملية</li>
+                <li>جلسة أسئلة وأجوبة</li>
             </ul>
-        </p>
+        </section>
 
-        <p>
-            <b>PEZE- What effect do Kipling’s structural devices have on the reader?</b><br>
-            Kipling's structural devices, such as the use of anaphora, rhyme scheme, and parallelism, make the poem highly readable and memorable. The repetition of "If" at the beginning of each stanza and the consistent rhyme scheme create a sense of order and make the advice more accessible. This structure also allows the reader to focus on each individual condition and its importance.
-        </p>
+        <section>
+            <h2>التسجيل</h2>
+            <p>احصل على مكانك الآن! قم بالتسجيل في ورشة العمل وادفع رسم الاشتراك 100TL قبل انتهاء المهلة في 26 أكتوبر 2023.</p>
+            <a href="https://vrxjbsycibs.typeform.com/to/nNjY0PQj" class="cta-button">سجّل الآن</a>
+        </section>
 
-        <p>
-            <b>PEZE – What effect do Kipling’s linguistic devices have on the reader?</b><br>
-            Kipling's use of linguistic devices, including metaphors and imperatives, serves to emphasize the message of the poem. Metaphors like "Triumph and Disaster" as "impostors" make the concepts more vivid and relatable. Imperatives create a sense of urgency and directness, reinforcing the importance of each piece of advice. These devices engage the reader and make the poem's guidance more impactful.
-        </p>
-                    <!-- Add the entire poem here -->
-                </div>
-               
-                <!-- Add the rest of the poem analysis content here -->
-                <!-- ... (the rest of your poem analysis) ... -->
-            </div>
-            <!-- Add more English topics and content as needed -->
-        </div>
-        <div class="content" id="math" style="display:none;">
-            <h2>Mathematics</h2>
-            <h3 class="subject-title">Algebra</h3>
-            <div class="topic">
-                <h4>Topic 1: Quadratic Equations</h4>
-                <p>Content and details about Quadratic Equations in Year 10...</p>
-            </div>
-            <div class="topic">
-                <h4>Topic 2: Simultaneous Equations</h4>
-                <p>Content and details about Simultaneous Equations in Year 10...</p>
-            </div>
-            <!-- Add more Math topics and content as needed -->
-        </div>
-        <div class="content" id="science" style="display:none;">
-            <h2>Science</h2>
-            <h3 class="subject-title">Physics</h3>
-            <div class="topic">
-                <h4>Topic 1: Electricity</h4>
-                <p>Content and details about Electricity in Year 10...</p>
-            </div>
-            <div class="topic">
-                <h4>Topic 2: Forces</h4>
-                <p>Content and details about Forces in Year 10...</p>
-            </div>
-            <!-- Add more Science topics and content as needed -->
-        </div>
-        <div class="content" id="history" style="display:none;">
-            <h2>History</h2>
-            <h3 class="subject-title">Ancient Civilizations</h3>
-            <div class="topic">
-                <h4>Topic 1: Ancient Egypt</h4>
-                <p>Content and details about Ancient Egypt in Year 10...</p>
-            </div>
-            <div class="topic">
-                <h4>Topic 2: Ancient Greece</h4>
-                <p>Content and details about Ancient Greece in Year 10...</p>
-            </div>
-            <!-- Add more History topics and content as needed -->
-        </div>
-        <!-- Add more subject sections and topics as needed -->
+        <section>
+            <h2>اتصل بنا</h2>
+            <p>إذا كان لديك أي أسئلة، فلا تتردد في التواصل معنا عبر <a href="mailto:am3507962@gmail.com">am3507962@gmail.com</a>.</p>
+        </section>
+
+        <section>
+            <h2>عداد تنازلي لإغلاق التسجيل</h2>
+            <p id="countdown-timer"></p>
+        </section>
     </div>
-    <script>
-        function showHome() {
-            document.getElementById("home").style.display = "block";
-            document.getElementById("english").style.display = "none";
-            document.getElementById("math").style.display = "none";
-            document.getElementById("science").style.display = "none";
-            document.getElementById("history").style.display = "none";
-            // Add similar lines for other subjects
-        }
 
-        function showSubject(subject) {
-            document.getElementById("home").style.display = "none";
-            document.getElementById("english").style.display = "none";
-            document.getElementById("math").style.display = "none";
-            document.getElementById("science").style.display = "none";
-            document.getElementById("history").style.display = "none";
-            document.getElementById(subject).style.display = "block";
-        }
-
-        function togglePoem() {
-            var poem = document.getElementById("poem");
-            if (poem.style.display === "none" || poem.style.display === "") {
-                poem.style.display = "block";
-            } else {
-                poem.style.display = "none";
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2023 ورشة العمل لاحتراف استخدام الكمبيوتر المحمول والهواتف الذكية</p>
+    </footer>
 </body>
 </html>
