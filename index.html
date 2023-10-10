@@ -9,23 +9,23 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #f5f5f5;
+            color: #333;
+            direction: rtl; /* Right-to-left text direction for Arabic */
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            margin: 0 auto;
             max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
 
         header {
-            text-align: center;
-            background-color: #007BFF;
+            background-color: #3498db;
             color: white;
+            text-align: center;
             padding: 20px 0;
+            border-radius: 10px 10px 0 0;
         }
 
         header h1 {
@@ -38,17 +38,38 @@
             margin-top: 10px;
         }
 
-        section {
-            text-align: right;
+        #countdown-container {
+            text-align: center;
+        }
+
+        #countdown-timer {
+            font-size: 24px;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column; /* Text on top */
+            align-items: center;
+        }
+
+        .flex-container img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        .dark-bg {
+            background-color: #333;
+            color: white;
             padding: 20px;
-            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
 
         section h2 {
             font-size: 24px;
+            margin-bottom: 10px;
+            color: #3498db;
         }
 
         ul {
@@ -58,7 +79,7 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #007BFF;
+            background-color: #3498db;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -66,10 +87,11 @@
             font-weight: bold;
             transition: background-color 0.3s;
             margin-top: 10px;
+            font-size: 18px;
         }
 
         .cta-button:hover {
-            background-color: #0056b3;
+            background-color: #2980b9;
         }
 
         footer {
@@ -77,18 +99,33 @@
             background-color: #333;
             color: white;
             padding: 10px 0;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-radius: 0 0 10px 10px;
             margin-top: 20px;
         }
 
         a {
-            color: #007BFF;
+            color: #3498db;
             text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Media Query for Mobile Responsiveness */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header p {
+                font-size: 16px;
+            }
+            section h2 {
+                font-size: 20px;
+            }
+            .cta-button {
+                font-size: 16px;
+            }
         }
     </style>
     <script>
@@ -127,41 +164,56 @@
 </head>
 <body>
     <header>
-        <h1>مرحبًا بكم في ورشة العمل</h1>
-        <p>حدث ليوم واحد لاحتراف أجهزتك الرقمية</p>
+        <h1>ورشة العمل لاحتراف استخدام الكمبيوتر المحمول والهواتف الذكية</h1>
+        <p>مرحبًا بكم في حدث لمدة يوم واحد لتحسين مهاراتك في استخدام الأجهزة الرقمية</p>
     </header>
 
     <div class="container">
+        <div id="countdown-container">
+            <p id="countdown-timer"></p>
+        </div>
+        
         <section>
             <h2>عن الحدث</h2>
             <p>انضم إلينا في ورشة العمل المثيرة حيث ستتعلم كيفية استخدام الكمبيوتر المحمول والهواتف الذكية بفعالية. سواء كنت مبتدئًا أو ترغب في تحسين مهاراتك، فإن هذه الورشة مناسبة لك!</p>
-        </section>
-
-        <section>
-            <h2>الأجندة</h2>
+            <p>سنغطي مواضيع مثل:</p>
             <ul>
-                <li>مقدمة حول الكمبيوتر المحمول والهواتف الذكية</li>
-                <li>استخدام الأساسيات والميزات</li>
+                <li>التعريف بالأجهزة والميزات الرئيسية</li>
+                <li>استخدام البرمجيات والتطبيقات الأساسية</li>
                 <li>حل المشكلات الشائعة</li>
-                <li>جلسة عملية</li>
-                <li>جلسة أسئلة وأجوبة</li>
+                <li>جلسة عملية لتطبيق المفاهيم</li>
+                <li>جلسة أسئلة وأجوبة مع فرصة لطرح استفساراتك</li>
             </ul>
         </section>
 
         <section>
+            <h2>معلومات عني</h2>
+            <div class="flex-container">
+                <img src="https://drive.google.com/uc?id=1Cm6VZo0Fia2chaLCroo72DatqRD4G_e3" alt="صورتي">
+                <div class="dark-bg">
+                    <p>أنا عادل محمد، عمري 16 عامًا، وأعمل كمطور واجهة مستخدم أمامية لمدة 3 سنوات. سأكون هنا لمساعدتك والإجابة على أسئلتك في الورشة. إذا كان لديك أي استفسارات قبل الحدث، فلا تتردد في <a href="mailto:am3507962@gmail.com">التواصل معي</a> أو عبر WhatsApp: <a href="https://wa.me/5510839150">+5510839150</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2>التسجيل</h2>
-            <p>احصل على مكانك الآن! قم بالتسجيل في ورشة العمل وادفع رسم الاشتراك 100TL قبل انتهاء المهلة في 26 أكتوبر 2023.</p>
+            <p>احصل على مكانك الآن! قم بالتسجيل في ورشة العمل من خلال الرابط التالي:</p>
             <a href="https://vrxjbsycibs.typeform.com/to/nNjY0PQj" class="cta-button">سجّل الآن</a>
         </section>
 
         <section>
-            <h2>اتصل بنا</h2>
-            <p>إذا كان لديك أي أسئلة، فلا تتردد في التواصل معنا عبر <a href="mailto:am3507962@gmail.com">am3507962@gmail.com</a>.</p>
+            <h2>تواصل معي</h2>
+            <div class="flex-container">
+               
+                    <p>مرحبًا! أنا عادل محمد، متخصص في تطوير واجهات المستخدم. أنا هنا لمساعدتك والإجابة على أي استفسارات تتعلق بالحدث أو تقنية المعلومات بشكل عام. لا تتردد في الاتصال بي عبر WhatsApp: <a href="https://wa.me/5510839150">+5510839150</a> أو البريد الإلكتروني <a href="mailto:am3507962@gmail.com">am3507962@gmail.com</a>.</p>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h2>عداد تنازلي لإغلاق التسجيل</h2>
-            <p id="countdown-timer"></p>
+            <h2>المزيد من المعلومات</h2>
+            <p>سنوفر جلسات تفاعلية وممتعة للمشاركين للتعرف على أحدث التطورات التكنولوجية وتعلم الاستفادة القصوى من أجهزتهم. ستحصل على فرصة لطرح أسئلتك وحل مشاكلك المتعلقة بالأجهزة والتقنية.</p>
         </section>
     </div>
 
