@@ -1,224 +1,222 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <title>The Program</title>
     <style>
         /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            direction: rtl; /* Right-to-left text direction for Arabic */
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            border-radius: 10px 10px 0 0;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        #countdown-container {
-            text-align: center;
-        }
-
-        #countdown-timer {
-            font-size: 24px;
-        }
-
-        .flex-container {
+        .navbar {
             display: flex;
-            flex-direction: column; /* Text on top */
-            align-items: center;
-        }
-
-        .flex-container img {
-            max-width: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-
-        .dark-bg {
             background-color: #333;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        section h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #3498db;
-        }
-
-        ul {
-            list-style-type: circle;
-            padding-left: 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-            font-size: 18px;
-        }
-
-        .cta-button:hover {
-            background-color: #2980b9;
-        }
-
-        footer {
-            text-align: center;
-            background-color: #333;
-            color: white;
+            justify-content: center;
             padding: 10px 0;
-            border-radius: 0 0 10px 10px;
-            margin-top: 20px;
+            position: fixed;
+            width: 100%;
         }
 
-        a {
-            color: #3498db;
+        .navbar a {
+            color: #fff;
             text-decoration: none;
+            margin: 0 20px;
+            transition: 0.3s;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .navbar a:hover {
+            color: #00bcd4;
         }
 
-        /* Media Query for Mobile Responsiveness */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
-            header p {
-                font-size: 16px;
-            }
-            section h2 {
-                font-size: 20px;
-            }
-            .cta-button {
-                font-size: 16px;
-            }
+        section {
+            padding: 100px;
+            text-align: center;
         }
+
+        .section-box {
+            background-color: #000;
+            padding: 20px;
+            border: 2px solid #00bcd4;
+            margin: 20px;
+        }
+
+        .section-box p {
+            margin: 10px 0;
+        }
+      ifarme{
+        margin-right: 5rem;
+        
+      }
     </style>
-    <script>
-        // Add your JavaScript code here
-
-        // Set the event date (October 28, 2023) and registration deadline (October 26, 2023)
-        const eventDate = new Date("2023-10-28").getTime();
-        const registrationDeadline = new Date("2023-10-26").getTime();
-
-        // Function to update the countdown timer
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeUntilEvent = eventDate - now;
-            const timeUntilDeadline = registrationDeadline - now;
-
-            if (timeUntilEvent > 0) {
-                const days = Math.floor(timeUntilDeadline / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeUntilDeadline % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeUntilDeadline % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeUntilDeadline % (1000 * 60)) / 1000);
-
-                const countdownText = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
-
-                document.getElementById("countdown-timer").innerText = `التسجيل يغلق في: ${countdownText}`;
-            } else {
-                document.getElementById("countdown-timer").innerText = "تم إغلاق التسجيل.";
-            }
-        }
-
-        // Update the countdown every second
-        setInterval(updateCountdown, 1000);
-
-        // Initial countdown update
-        updateCountdown();
-    </script>
 </head>
 <body>
-    <header>
-        <h1>ورشة العمل لاحتراف استخدام الكمبيوتر المحمول والهواتف الذكية</h1>
-        <p>مرحبًا بكم في حدث لمدة يوم واحد لتحسين مهاراتك في استخدام الأجهزة الرقمية</p>
-    </header>
-
-    <div class="container">
-        <div id="countdown-container">
-            <p id="countdown-timer"></p>
-        </div>
-        
-        <section>
-            <h2>عن الحدث</h2>
-            <p>انضم إلينا في ورشة العمل المثيرة حيث ستتعلم كيفية استخدام الكمبيوتر المحمول والهواتف الذكية بفعالية. سواء كنت مبتدئًا أو ترغب في تحسين مهاراتك، فإن هذه الورشة مناسبة لك!</p>
-            <p>سنغطي مواضيع مثل:</p>
-            <ul>
-                <li>التعريف بالأجهزة والميزات الرئيسية</li>
-                <li>استخدام البرمجيات والتطبيقات الأساسية</li>
-                <li>حل المشكلات الشائعة</li>
-                <li>جلسة عملية لتطبيق المفاهيم</li>
-                <li>جلسة أسئلة وأجوبة مع فرصة لطرح استفساراتك</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>معلومات عني</h2>
-            <div class="flex-container">
-                <img src="https://drive.google.com/uc?id=1Cm6VZo0Fia2chaLCroo72DatqRD4G_e3" alt="صورتي">
-                <div class="dark-bg">
-                    <p>أنا عادل محمد، عمري 16 عامًا، وأعمل كمطور واجهة مستخدم أمامية لمدة 3 سنوات. سأكون هنا لمساعدتك والإجابة على أسئلتك في الورشة. إذا كان لديك أي استفسارات قبل الحدث، فلا تتردد في <a href="mailto:am3507962@gmail.com">التواصل معي</a> أو عبر WhatsApp: <a href="https://wa.me/5510839150">+5510839150</a>.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>التسجيل</h2>
-            <p>احصل على مكانك الآن! قم بالتسجيل في ورشة العمل من خلال الرابط التالي:</p>
-            <a href="https://vrxjbsycibs.typeform.com/to/nNjY0PQj" class="cta-button">سجّل الآن</a>
-        </section>
-
-        <section>
-            <h2>تواصل معي</h2>
-            <div class="flex-container">
-               
-                    <p>مرحبًا! أنا عادل محمد، متخصص في تطوير واجهات المستخدم. أنا هنا لمساعدتك والإجابة على أي استفسارات تتعلق بالحدث أو تقنية المعلومات بشكل عام. لا تتردد في الاتصال بي عبر WhatsApp: <a href="https://wa.me/5510839150">+5510839150</a> أو البريد الإلكتروني <a href="mailto:am3507962@gmail.com">am3507962@gmail.com</a>.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>المزيد من المعلومات</h2>
-            <p>سنوفر جلسات تفاعلية وممتعة للمشاركين للتعرف على أحدث التطورات التكنولوجية وتعلم الاستفادة القصوى من أجهزتهم. ستحصل على فرصة لطرح أسئلتك وحل مشاكلك المتعلقة بالأجهزة والتقنية.</p>
-        </section>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
     </div>
 
-    <footer>
-        <p>&copy; 2023 ورشة العمل لاحتراف استخدام الكمبيوتر المحمول والهواتف الذكية</p>
-    </footer>
+    <section id="home">
+        <h1>Welcome to "The Program" (ア)</h1>
+        <p>The place where you can learn, engage in your business, and have fun with the lowest possible price.</p>
+    </section>
+
+    <section id="about">
+        <h1>About Us</h1>
+        <p>The company was founded in 2020 by Adel Mohammed, an entrepreneur who recognized the challenges people faced with technology and marketing. Our mission is to make your journey in the digital world easier and more successful.</p>
+        <p>"Our company was born from the desire to alleviate the struggles people face with technology. I'm here to make your journey easier and more successful," says Adel, the CEO.</p>
+        <p>The company has experienced remarkable growth, expanding its team and capabilities. We concentrate on working with freelancers who are dedicated to bringing your vision to life.</p>
+    </section>
+
+    <section id="services">
+        <h1>Our Services</h1>
+        <div class="section-box">
+            <h2>Website Building</h2>
+            <p>Our website development team creates stunning, functional websites tailored to your business's unique identity. We focus on user-friendly designs that leave a lasting impression.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Online School Systems</h2>
+            <p>Our comprehensive online school system streamlines every aspect of the education process. From homework submission and feedback to comprehensive note revision and direct student-teacher communication, we've got you covered.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Event Handling</h2>
+            <p>Entrust us with the planning and execution of your teaching events. We ensure seamless coordination and a flawless experience for both educators and students.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Technology Courses</h2>
+            <p>Explore a wide range of technology courses, each led by industry experts. Our courses are designed to equip you with practical skills that are in demand in today's tech-driven world.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Kids Courses</h2>
+            <p>Our engaging and educational courses for young learners are designed to foster creativity and a love for learning. We believe that education should be fun.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Discord Servers</h2>
+            <p>Let us take care of your Discord servers. Our expertise ensures that your community or business communicates effectively and securely.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Telegram Bots</h2>
+            <p>We develop Telegram bots to enhance your communication and automation needs on the Telegram platform. From chatbots to automation tools, we've got your Telegram solutions covered.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Marketing</h2>
+            <p>Our marketing specialists are dedicated to helping your business reach its full potential. We create strategies that not only attract attention but also drive results.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Merchandise Design</h2>
+            <p>We understand the power of branding. Our custom designs elevate your merchandise, making it stand out and leaving a lasting impression on your audience.</p>
+        </div>
+    </section>
+
+    <section id="team">
+        <h1>Our Team</h1>
+        <div class="section-box">
+            <h2>Adel Mohammed - CEO</h2>
+            <p>Adel is a dynamic leader with a passion for innovation. His vision guides the company, making sure it aligns with the evolving needs of our clients.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Mohammed Youssef - Marketing</h2>
+            <p>Mohammed is a marketing extraordinaire, specializing in creating strategies that capture attention and drive engagement. He understands the art of telling a compelling story.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Mohammed Ali - UI/UX</h2>
+            <p>Mohammed is the creative force behind our user interfaces, ensuring that every interaction is intuitive, aesthetically pleasing, and memorable.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Omar Khalid - Designer</h2>
+            <p>Omar brings his artistic touch to every project. His designs are not just visually striking but also convey a message that resonates with the audience.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Fady - Discord / Dev / Design / Marketing</h2>
+            <p>Fady is our Swiss Army knife, versatile and multi-talented. He's the driving force behind various aspects of our projects, ensuring they come together seamlessly.</p>
+        </div>
+    </section>
+
+<section id="contact" style="background-color: #000; padding: 100px; text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 2rem;">
+            <h1 style="color: #fff;">Location</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120877.27701909059!2d28.918216416723086!3d41.008237100455235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac160dd65479d%3A0x398f55a2d24a79d!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1610512984230!5m2!1sen!2sus" width="100%" height="100%" style="border: 2px solid #fff;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div style="flex: 1; text-align: left;">
+            <h1 style="color: #fff;">Contact Us</h1>
+            <div class="contact-box" style="border: 2px solid #fff; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #fff;">Email</h3>
+                <p style="color: #fff;">am3507962@gmail.com</p>
+            </div>
+            <div class="contact-box" style="border: 2px solid #fff; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #fff;">Phone</h3>
+                <p style="color: #fff;">551-083-1950</p>
+            </div>
+            <div class="social-icons" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <a href="your_patreon_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-patreon" style="font-size: 30px;"></i></a>
+                <a href="your_linktree_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fas fa-link" style="font-size: 30px;"></i></a>
+                <a href="your_discord_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-discord" style="font-size: 30px;"></i></a>
+                <a href="your_facebook_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-facebook" style="font-size: 30px;"></i></a>
+                <a href="your_instagram_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-instagram" style="font-size: 30px;"></i></a>
+                <a href="your_twitter_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-twitter" style="font-size: 30px;"></i></a>
+                <a href="your_youtube_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-youtube" style="font-size: 30px;"></i></a>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <a href="your_contact_us_link" style="flex: 1;">
+                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
+                        <h3 style="color: #fff;">Contact Us</h3>
+                        <p style="color: #fff;">Contact our team for inquiries</p>
+                    </div>
+                </a>
+                <a href="your_rate_us_link" style="flex: 1;">
+                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
+                        <h3 style="color: #fff;">Rate Us</h3>
+                        <p style="color: #fff;">Share your feedback and rate our services</p>
+                    </div>
+                </a>
+                <a href="your_work_with_us_link" style="flex: 1;">
+                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
+                        <h3 style="color: #fff;">Work With Us</h3>
+                        <p style="color: #fff;">Explore job opportunities with us</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- JavaScript for smooth scrolling, animations, or other functionality -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
