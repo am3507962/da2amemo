@@ -2,221 +2,196 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
-    <title>The Program</title>
+    <title>Shopping Website</title>
     <style>
-        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
             margin: 0;
             padding: 0;
         }
 
-        .navbar {
-            display: flex;
+        header {
             background-color: #333;
-            justify-content: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-        }
-
-        .navbar a {
             color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            transition: 0.3s;
+            text-align: center;
+            padding: 20px 0;
         }
 
-        .navbar a:hover {
-            color: #00bcd4;
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
         }
 
         section {
-            padding: 100px;
-            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .section-box {
-            background-color: #000;
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            margin-top: 5px;
+        }
+
+        #cart {
+            border: 1px solid #ccc;
             padding: 20px;
-            border: 2px solid #00bcd4;
-            margin: 20px;
         }
 
-        .section-box p {
-            margin: 10px 0;
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
         }
-      ifarme{
-        margin-right: 5rem;
-        
-      }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-    </div>
 
-    <section id="home">
-        <h1>Welcome to "The Program" (ア)</h1>
-        <p>The place where you can learn, engage in your business, and have fun with the lowest possible price.</p>
-    </section>
+    <header>
+        <h1>My Shopping Website</h1>
+        <nav>
+            <button onclick="showAddProductForm()">Add Product</button>
+        </nav>
+    </header>
 
-    <section id="about">
-        <h1>About Us</h1>
-        <p>The company was founded in 2020 by Adel Mohammed, an entrepreneur who recognized the challenges people faced with technology and marketing. Our mission is to make your journey in the digital world easier and more successful.</p>
-        <p>"Our company was born from the desire to alleviate the struggles people face with technology. I'm here to make your journey easier and more successful," says Adel, the CEO.</p>
-        <p>The company has experienced remarkable growth, expanding its team and capabilities. We concentrate on working with freelancers who are dedicated to bringing your vision to life.</p>
-    </section>
+    <main>
+        <section id="products">
+            <!-- Products will be dynamically added here -->
+        </section>
 
-    <section id="services">
-        <h1>Our Services</h1>
-        <div class="section-box">
-            <h2>Website Building</h2>
-            <p>Our website development team creates stunning, functional websites tailored to your business's unique identity. We focus on user-friendly designs that leave a lasting impression.</p>
-        </div>
+        <section id="addProduct" style="display: none;">
+            <h2>Add a Product</h2>
+            <form id="productForm">
+                <input type="text" placeholder="Product Name" id="productName">
+                <input type="number" placeholder="Price" id="productPrice">
+                <input type="password" placeholder="Enter Passcode to Add Product" id="passcode">
+                <button type="button" onclick="addProduct()">Add Product</button>
+            </form>
+        </section>
 
-        <div class="section-box">
-            <h2>Online School Systems</h2>
-            <p>Our comprehensive online school system streamlines every aspect of the education process. From homework submission and feedback to comprehensive note revision and direct student-teacher communication, we've got you covered.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Event Handling</h2>
-            <p>Entrust us with the planning and execution of your teaching events. We ensure seamless coordination and a flawless experience for both educators and students.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Technology Courses</h2>
-            <p>Explore a wide range of technology courses, each led by industry experts. Our courses are designed to equip you with practical skills that are in demand in today's tech-driven world.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Kids Courses</h2>
-            <p>Our engaging and educational courses for young learners are designed to foster creativity and a love for learning. We believe that education should be fun.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Discord Servers</h2>
-            <p>Let us take care of your Discord servers. Our expertise ensures that your community or business communicates effectively and securely.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Telegram Bots</h2>
-            <p>We develop Telegram bots to enhance your communication and automation needs on the Telegram platform. From chatbots to automation tools, we've got your Telegram solutions covered.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Marketing</h2>
-            <p>Our marketing specialists are dedicated to helping your business reach its full potential. We create strategies that not only attract attention but also drive results.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Merchandise Design</h2>
-            <p>We understand the power of branding. Our custom designs elevate your merchandise, making it stand out and leaving a lasting impression on your audience.</p>
-        </div>
-    </section>
-
-    <section id="team">
-        <h1>Our Team</h1>
-        <div class="section-box">
-            <h2>Adel Mohammed - CEO</h2>
-            <p>Adel is a dynamic leader with a passion for innovation. His vision guides the company, making sure it aligns with the evolving needs of our clients.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Mohammed Youssef - Marketing</h2>
-            <p>Mohammed is a marketing extraordinaire, specializing in creating strategies that capture attention and drive engagement. He understands the art of telling a compelling story.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Mohammed Ali - UI/UX</h2>
-            <p>Mohammed is the creative force behind our user interfaces, ensuring that every interaction is intuitive, aesthetically pleasing, and memorable.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Omar Khalid - Designer</h2>
-            <p>Omar brings his artistic touch to every project. His designs are not just visually striking but also convey a message that resonates with the audience.</p>
-        </div>
-
-        <div class="section-box">
-            <h2>Fady - Discord / Dev / Design / Marketing</h2>
-            <p>Fady is our Swiss Army knife, versatile and multi-talented. He's the driving force behind various aspects of our projects, ensuring they come together seamlessly.</p>
-        </div>
-    </section>
-
-<section id="contact" style="background-color: #000; padding: 100px; text-align: center;">
-    <div style="display: flex; align-items: center; justify-content: space-between;">
-        <div style="flex: 1; margin-right: 2rem;">
-            <h1 style="color: #fff;">Location</h1>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120877.27701909059!2d28.918216416723086!3d41.008237100455235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac160dd65479d%3A0x398f55a2d24a79d!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1610512984230!5m2!1sen!2sus" width="100%" height="100%" style="border: 2px solid #fff;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div style="flex: 1; text-align: left;">
-            <h1 style="color: #fff;">Contact Us</h1>
-            <div class="contact-box" style="border: 2px solid #fff; padding: 20px; margin-bottom: 20px;">
-                <h3 style="color: #fff;">Email</h3>
-                <p style="color: #fff;">am3507962@gmail.com</p>
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cartItems">
+                <!-- Cart items will be displayed here -->
             </div>
-            <div class="contact-box" style="border: 2px solid #fff; padding: 20px; margin-bottom: 20px;">
-                <h3 style="color: #fff;">Phone</h3>
-                <p style="color: #fff;">551-083-1950</p>
-            </div>
-            <div class="social-icons" style="display: flex; justify-content: center; margin-bottom: 20px;">
-                <a href="your_patreon_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-patreon" style="font-size: 30px;"></i></a>
-                <a href="your_linktree_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fas fa-link" style="font-size: 30px;"></i></a>
-                <a href="your_discord_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-discord" style="font-size: 30px;"></i></a>
-                <a href="your_facebook_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-facebook" style="font-size: 30px;"></i></a>
-                <a href="your_instagram_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-instagram" style="font-size: 30px;"></i></a>
-                <a href="your_twitter_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-twitter" style="font-size: 30px;"></i></a>
-                <a href="your_youtube_link" style="text-decoration: none; margin: 0 20px; color: #fff;"><i class="fab fa-youtube" style="font-size: 30px;"></i></a>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-                <a href="your_contact_us_link" style="flex: 1;">
-                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
-                        <h3 style="color: #fff;">Contact Us</h3>
-                        <p style="color: #fff;">Contact our team for inquiries</p>
-                    </div>
-                </a>
-                <a href="your_rate_us_link" style="flex: 1;">
-                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
-                        <h3 style="color: #fff;">Rate Us</h3>
-                        <p style="color: #fff;">Share your feedback and rate our services</p>
-                    </div>
-                </a>
-                <a href="your_work_with_us_link" style="flex: 1;">
-                    <div class="contact-box" style="border: 2px solid #fff; padding: 20px;">
-                        <h3 style="color: #fff;">Work With Us</h3>
-                        <p style="color: #fff;">Explore job opportunities with us</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+            <p>Total: $<span id="totalPrice">0.00</span></p>
+            <form id="userInfoForm" onsubmit="sendEmail(event)">
+                <input type="text" placeholder="Your Name" id="userName">
+                <input type="tel" placeholder="Your Phone Number" id="userPhone">
+                <button type="submit">Buy Cart</button>
+            </form>
+        </section>
+    </main>
 
-
-
-    <!-- JavaScript for smooth scrolling, animations, or other functionality -->
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        let products = [];
+        let cart = [];
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        function showAddProductForm() {
+            const addProductSection = document.getElementById('addProduct');
+            addProductSection.style.display = 'block';
+        }
+
+        function addProduct() {
+            const passcode = document.getElementById('passcode').value;
+
+            if (passcode !== '1223334444') {
+                alert('Incorrect passcode. Product not added.');
+                return;
+            }
+
+            const productName = document.getElementById('productName').value;
+            const productPrice = parseFloat(document.getElementById('productPrice').value);
+
+            const newProduct = {
+                name: productName,
+                price: productPrice
+            };
+
+            products.push(newProduct);
+            displayProducts();
+            clearForm();
+        }
+
+        function displayProducts() {
+            const productsSection = document.getElementById('products');
+            productsSection.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
+                productElement.innerHTML = `<h3>${product.name}</h3><p>$${product.price}</p><button onclick="addToCart(${index})">Add to Cart</button>`;
+                productsSection.appendChild(productElement);
             });
-        });
+        }
+
+        function addToCart(index) {
+            const selectedProduct = products[index];
+            cart.push(selectedProduct);
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            cartItemsDiv.innerHTML = '';
+
+            let totalPrice = 0;
+
+            cart.forEach((cartItem) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `<h3>${cartItem.name}</h3><p>$${cartItem.price}</p>`;
+                cartItemsDiv.appendChild(cartItemElement);
+
+                totalPrice += cartItem.price;
+            });
+
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+        }
+
+        function clearForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('passcode').value = '';
+        }
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const userEmail = 'am3507962@gmail.com';
+            const userName = document.getElementById('userName').value;
+            const userPhone = document.getElementById('userPhone').value;
+            const cartInfo = cart.map(item => `${item.name} - $${item.price}`).join('\n');
+            const totalPrice = document.getElementById('totalPrice').textContent;
+
+            const emailSubject = `Purchase Details from ${userName}`;
+            const emailBody = `Customer Name: ${userName}\nPhone Number: ${userPhone}\n\nCart Items:\n${cartInfo}\nTotal Price: $${totalPrice}`;
+
+            const mailtoLink = `mailto:${userEmail}?subject=${emailSubject}&body=${emailBody}`;
+            window.location.href = mailtoLink;
+
+            cart = [];
+            displayCart();
+            document.getElementById('userName').value = '';
+            document.getElementById('userPhone').value = '';
+        }
+
+        // Initial display of products
+        displayProducts();
     </script>
 </body>
 </html>
