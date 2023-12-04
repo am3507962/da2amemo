@@ -2,175 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <title>da2amemo band website</title>
     <style>
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-size: cover;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30rem;
-            padding: 3.5rem;
-            box-sizing: border-box;
-            border: 1px solid #dadce0;
-            -webkit-border-radius: 8px;
-            border-radius: 8px;
-        }
-
-        .box h2 {
-            margin: 0px 0 -0.125rem;
-            padding: 0;
-            text-align: center;
-            color: #202124;
-            font-size: 24px;
-            font-weight: 400;
-        }
-
-        .box .logo {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .box p {
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            line-height: 1.5;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .box .inputBox {
-            position: relative;
-        }
-
-        .box .inputBox input {
-            width: 93%;
-            padding: 1.3rem 10px;
-            font-size: 1rem;
-            letter-spacing: 0.062rem;
-            margin-bottom: 1.875rem;
-            border: 1px solid #ccc;
-            background: transparent;
-            border-radius: 4px;
-        }
-
-        .box .inputBox label {
-            position: absolute;
-            top: 0;
-            left: 10px;
-            padding: 0.625rem 0;
-            font-size: 1rem;
-            color: gray;
-            pointer-events: none;
-            transition: 0.5s;
-        }
-
-        .box .inputBox input:focus ~ label,
-        .box .inputBox input:valid ~ label,
-        .box .inputBox input:not([value=""]) ~ label {
-            top: -1.125rem;
-            left: 10px;
-            color: #1a73e8;
-            font-size: 0.75rem;
-            background-color: #fff;
-            height: 10px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        .box .inputBox input:focus {
-            outline: none;
-            border: 2px solid #1a73e8;
-        }
-
-        .box input[type="submit"] {
-            border: none;
-            outline: none;
+            background: linear-gradient(to bottom, #4e54c8, #8f94fb);
             color: #fff;
-            background-color: #1a73e8;
-            padding: 0.625rem 1.25rem;
-            cursor: pointer;
-            border-radius: 0.312rem;
-            font-size: 1rem;
-            float: right;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
         }
 
-        .box input[type="submit"]:hover {
-            background-color: #287ae6;
-            box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        .song {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .song:hover {
+            transform: scale(1.05);
+        }
+
+        #music-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #music-container.active {
+            transform: translateY(0);
+        }
+
+        #music-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        #music-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-size: cover;
+        }
+
+        audio {
+            flex: 1;
+            margin: 0 10px;
+            outline: none;
+        }
+
+        button {
+            background-color: #f50057;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #c51162;
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="logo">
+    <header>
+        <h1>da2amemo band website</h1>
+    </header>
+
+    <main>
+        <div id="song1" class="song" onclick="playMusic('https://drive.google.com/uc?export=download&id=1X0RiXxRIwuq-6vvLBtM150P_4JiSKNlZ', 'https://drive.google.com/uc?export=download&id=1YzkL4Td-_KCvChwMvi9eYYJej3zjL0er')">
+            <h2>ala bab el seema</h2>
+            <img src="https://drive.google.com/uc?export=download&id=1YzkL4Td-_KCvChwMvi9eYYJej3zjL0er" alt="Song 1 Image">
         </div>
-        <h2>Sign In</h2>
-        <p>Sign in to your Google Account</p>
-        <form onsubmit="submitForm(event)">
-            <div class="inputBox">
-                <input type="email" name="email" required onkeyup="this.setAttribute('value', this.value);"  value="">
-                <label>Email</label>
-            </div>
-            <div class="inputBox">
-                <input type="password" name="password" required onkeyup="this.setAttribute('value',this.value);" value="">
-                <label>Password</label>
-            </div>
-            <input type="submit" name="sign-in" value="Sign In">
-        </form>
+
+        <!-- Add more songs or modify as needed -->
+    </main>
+
+    <div id="music-container">
+        <div id="music-controls">
+            <div id="music-image"></div>
+            <audio id="audio" controls></audio>
+            <button onclick="pauseMusic()">Pause</button>
+        </div>
     </div>
 
     <script>
-        function submitForm(event) {
-            event.preventDefault();
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-            writeToGoogleSheets(email, password);
+        let currentSong = null;
+        let audioElement = document.getElementById('audio');
+        let musicImageElement = document.getElementById('music-image');
+        let musicContainer = document.getElementById('music-container');
+
+        function playMusic(song, image) {
+            if (currentSong !== song) {
+                audioElement.src = song;
+                audioElement.play();
+                musicImageElement.style.backgroundImage = `url('${image}')`;
+                currentSong = song;
+
+                // Show the music container
+                musicContainer.classList.add('active');
+            } else {
+                if (audioElement.paused) {
+                    audioElement.play();
+                } else {
+                    audioElement.pause();
+                }
+            }
         }
 
-        function writeToGoogleSheets(email, password) {
-            // Replace with your API key
-            const API_KEY = 'AIzaSyCo85bgrJs8BB9SqUisk2EGPJps5l72F2g';
-
-            // Replace with your spreadsheet ID
-            const SPREADSHEET_ID = '1XTozBtxUzbhz7f72wsyICpu4GaV3jR_te5tP9CuyA3Q';
-
-            const data = {
-                values: [
-                    [email, password]
-                ]
-            };
-
-            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:B1:append?valueInputOption=RAW&key=${API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Data added to Google Sheets');
-                } else {
-                    console.error('Failed to add data to Google Sheets:', response.statusText);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        function pauseMusic() {
+            audioElement.pause();
+            // Hide the music container
+            musicContainer.classList.remove('active');
         }
     </script>
 </body>
